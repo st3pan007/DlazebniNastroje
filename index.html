@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesionální nástroje pro pokládku dlažby | Přesnost & Kvalita</title>
+    <meta name="description" content="Německé nástroje pro perfektní dlažbu. Měřítko a vyrovnávací lišta pro profesionální výsledky.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b35;
+            --secondary: #2c3e50;
+            --accent: #e67e22;
+            --light: #f9f5f1;
+            --dark: #1a1a1a;
+            --brown: #8b6f47;
+            --beige: #d4a574;
+            --gradient: linear-gradient(135deg, #ff6b35 0%, #e67e22 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            fill: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&h=1080&fit=crop') center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            color: white;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Floating Elements */
+        .floating-blueprint {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problems::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-2deg);
+            transform-origin: top left;
+        }
+
+        .problems::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .problems-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .problems-intro p {
+            font-size: 1.125rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* New Problems Grid */
+        .problems-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: var(--primary);
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .problem-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover .problem-number {
+            background: var(--primary);
+            color: white;
+            transform: rotate(-10deg);
+        }
+
+        .problem-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 107, 53, 0.05) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .problem-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover .problem-icon {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
+        }
+
+        .problem-card:hover .problem-icon svg {
+            transform: scale(1.1);
+        }
+
+        .problem-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--secondary);
+        }
+
+        .problem-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Final Problem Card */
+        .problem-final {
+            grid-column: 1 / -1;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-final::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .problem-final .problem-header {
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-final .problem-number {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            margin-right: 0;
+        }
+
+        .problem-final .problem-content h4 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-final .problem-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.125rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Connecting Lines */
+        .problem-connector {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 107, 53, 0.3) 50%, transparent 100%);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .product:nth-child(even) {
+            direction: rtl;
+        }
+
+        .product:nth-child(even) .product-content {
+            direction: ltr;
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .product-image:hover img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .product-3d-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .technical-drawing {
+            width: 100%;
+            height: 100%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .product-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .product-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .spec {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(2deg);
+            transform-origin: top right;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            background: var(--light);
+            border-radius: 20px;
+        }
+
+        .benefit-card:hover {
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+            stroke-width: 1.5;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: translateY(-10px) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .step-group {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .step-group:first-child {
+            margin-top: 2rem;
+        }
+
+        .step-group:last-child {
+            margin-top: -2rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: var(--light);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            min-width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 1.5rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: var(--secondary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="0" y="0" width="1" height="1" fill="white" opacity="0.05"/></svg>');
+            background-size: 100px 100px;
+            transform: rotate(45deg);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: white;
+            color: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'NEJLEPŠÍ VOLBA';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .price-original {
+            display: block;
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .price-cta {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .price-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: white;
+            padding-left: 2rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 1.5rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0 50px;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-section {
+            margin-top: 3rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .whatsapp-text {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .whatsapp-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2.5rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 10000;
+            transition: width 0.3s ease;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product:nth-child(even) {
+                direction: ltr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .step-group:first-child,
+            .step-group:last-child {
+                margin-top: 0;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-card {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Dlažba/kostka -->
+                    <rect x="2" y="2" width="9" height="9" fill="currentColor" opacity="0.8"/>
+                    <rect x="13" y="2" width="9" height="9" fill="currentColor" opacity="0.6"/>
+                    <rect x="2" y="13" width="9" height="9" fill="currentColor" opacity="0.6"/>
+                    <rect x="13" y="13" width="9" height="9" fill="currentColor" opacity="0.8"/>
+                    <!-- Měřítko -->
+                    <path d="M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 6h3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problémy</a></li>
+                <li><a href="#products">Produkty</a></li>
+                <li><a href="#benefits">Výhody</a></li>
+                <li><a href="#pricing">Ceny</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Přesná dlažba jako od profesionála</h1>
+                <p class="hero-subtitle">Německé nástroje pro dokonalý výsledek bez zbytečné námahy</p>
+                <a href="#products" class="hero-cta">Zjistit více o nástrojích</a>
+            </div>
+        </div>
+        <svg class="floating-blueprint" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="50" width="200" height="200" fill="none" stroke="white" stroke-width="1"/>
+            <line x1="50" y1="150" x2="250" y2="150" stroke="white" stroke-width="0.5"/>
+            <line x1="150" y1="50" x2="150" y2="250" stroke="white" stroke-width="0.5"/>
+            <circle cx="150" cy="150" r="30" fill="none" stroke="white" stroke-width="0.5"/>
+        </svg>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problem">
+        <div class="container">
+            <div class="problems-intro fade-in">
+                <h2>Znáte to?</h2>
+                <p>Pokládka dlažby nemusí být noční můra. S přesnými nástroji dosáhnete profesionálního výsledku rychleji a s menší námahou.</p>
+            </div>
+            
+            <div class="problems-container">
+                <div class="problems-grid">
+                    <div class="problem-card" style="--delay: 0">
+                        <div class="problem-header">
+                            <div class="problem-number">1</div>
+                            <div class="problem-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="problem-content">
+                            <h4>Ztráta času</h4>
+                            <p>Hodiny strávené měřením a přeměřováním každé kostky. Nekonečné opravy a přepracovávání.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card" style="--delay: 1">
+                        <div class="problem-header">
+                            <div class="problem-number">2</div>
+                            <div class="problem-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="problem-content">
+                            <h4>Nepřesnost</h4>
+                            <p>Špatné řezy znamenají plýtvání materiálem a dodatečné náklady na nový materiál.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card" style="--delay: 2">
+                        <div class="problem-header">
+                            <div class="problem-number">3</div>
+                            <div class="problem-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M2 12h20"/>
+                                    <path d="M7 7l10 10M17 7L7 17" opacity="0.3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="problem-content">
+                            <h4>Louže a propady</h4>
+                            <p>Nerovná dlažba, která se houpe a časem propadá. Voda zůstává v kalužích.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card" style="--delay: 3">
+                        <div class="problem-header">
+                            <div class="problem-number">4</div>
+                            <div class="problem-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
+                                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="problem-content">
+                            <h4>Bolesti zad</h4>
+                            <p>Neustálé ohýbání při měření způsobuje zdravotní problémy a únavu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-card problem-final" style="--delay: 4">
+                        <div class="problem-header">
+                            <div class="problem-number">!</div>
+                        </div>
+                        <div class="problem-content">
+                            <h4>Výsledek? Dodatečné náklady!</h4>
+                            <p>Opravy, reklamace a přepracování stojí tisíce navíc. Nemluvě o stresu a zklamání z nedokonalého výsledku.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="fade-in" style="text-align: center; margin-bottom: 4rem;">Naše řešení pro perfektní dlažbu</h2>
+            
+            <!-- Product 1 -->
+            <div class="product fade-in">
+                <div class="product-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d17f62b0-ecf7-4bd1-a8ff-380b1ea19300/public" alt="Měřítko dlažební kostky">
+                    <span class="product-badge">4x rychlejší</span>
+                    <div class="product-3d-overlay">
+                        <svg viewBox="0 0 400 300" class="technical-drawing">
+                            <rect x="50" y="50" width="300" height="200" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                            <line x1="50" y1="150" x2="350" y2="150" stroke="var(--primary)" stroke-width="1" opacity="0.2"/>
+                            <line x1="200" y1="50" x2="200" y2="250" stroke="var(--primary)" stroke-width="1" opacity="0.2"/>
+                            <text x="360" y="155" fill="var(--primary)" font-size="14">300mm</text>
+                            <text x="205" y="265" fill="var(--primary)" font-size="14">450mm</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3>Měřítko dlažební kostky</h3>
+                    <h4>Přesné měření, poloviční čas</h4>
+                    <p>Rychlé a přesné přenášení úhlů a délek řezaného materiálu. Robustní konstrukce z kvalitního hliníku vydrží náročné podmínky. Ergonomický design šetří vaše záda.</p>
+                    
+                    <ul class="product-features">
+                        <li>4x rychlejší než klasické měření metrem</li>
+                        <li>Přesnost ±0,5 mm pro perfektní spoje</li>
+                        <li>Ergonomický design pro pohodlnou práci</li>
+                    </ul>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <span class="spec-label">Max. šířka</span>
+                            <span class="spec-value">300 mm</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Max. délka</span>
+                            <span class="spec-value">450 mm</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Hmotnost</span>
+                            <span class="spec-value">0,9 kg</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Materiál</span>
+                            <span class="spec-value">Hliník</span>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 2rem; font-weight: 600; color: var(--primary);">
+                        Výsledek: Ušetříte hodiny práce a materiál díky přesným řezům napoprvé.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product fade-in">
+                <div class="product-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/99afde4b-146a-47a3-c0ea-9e14c2881400/public" alt="Vyrovnávací lišta">
+                    <span class="product-badge">Perfektní rovina</span>
+                    <div class="product-3d-overlay">
+                        <svg viewBox="0 0 400 300" class="technical-drawing">
+                            <line x1="30" y1="150" x2="370" y2="150" stroke="var(--primary)" stroke-width="3" opacity="0.4"/>
+                            <path d="M 30 140 Q 200 120 370 140" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
+                            <path d="M 30 160 Q 200 180 370 160" fill="none" stroke="var(--primary)" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
+                            <text x="180" y="200" fill="var(--primary)" font-size="14">Plynulé nastavení</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3>Vyrovnávací lišta</h3>
+                    <h4>Rovný povrch na první pokus</h4>
+                    <p>Profesionální nástroj pro přípravu podkladu pod dlažbu. Plynulé nastavení výšky zajistí perfektně rovnou plochu bez louží a propadů. Vhodná pro beton i pískové podklady.</p>
+                    
+                    <ul class="product-features">
+                        <li>Plynulé nastavení výšky pro různé tloušťky</li>
+                        <li>Eliminuje propadání dlažby v budoucnu</li>
+                        <li>Zajistí správný spád pro odvodnění</li>
+                        <li>Univerzální použití na beton i písek</li>
+                    </ul>
+                    
+                    <div class="product-specs">
+                        <div class="spec">
+                            <span class="spec-label">Nastavení</span>
+                            <span class="spec-value">Plynulé</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Použití</span>
+                            <span class="spec-value">Univerzální</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Konstrukce</span>
+                            <span class="spec-value">Odolná</span>
+                        </div>
+                        <div class="spec">
+                            <span class="spec-label">Životnost</span>
+                            <span class="spec-value">Dlouhodobá</span>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 2rem; font-weight: 600; color: var(--primary);">
+                        Výsledek: Dlažba, která vydrží roky bez oprav a reklamací.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="fade-in">Proč investovat do kvalitního nářadí?</h2>
+            
+            <div class="benefits-grid fade-in">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Úspora času</h3>
+                    <p>Dokončete projekt o <strong>40% rychleji</strong>. Víkend stačí na to, co dřív trvalo týden.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3>Úspora materiálu</h3>
+                    <p>Přesné měření = <strong>minimum odpadu</strong>. Ušetříte tisíce na materiálu.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 12 15 16 10"/>
+                        </svg>
+                    </div>
+                    <h3>Profesionální výsledek</h3>
+                    <p>Rovná dlažba bez louží, která vydrží <strong>desetiletí</strong>.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                            <path d="M12 14v7"/>
+                        </svg>
+                    </div>
+                    <h3>Ochrana zdraví</h3>
+                    <p>Ergonomické nástroje šetří vaše <strong>záda a klouby</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <h2 class="fade-in">Jak to funguje?</h2>
+            
+            <div class="steps-container fade-in">
+                <div class="step-group">
+                    <h3>Měřítko - 3 jednoduché kroky</h3>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Přiložte</h4>
+                            <p>Přiložte k dlažbě, která potřebuje úpravu</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Nastavte</h4>
+                            <p>Nastavte požadovaný úhel nebo délku</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Řežte</h4>
+                            <p>Přeneste značení a řežte s jistotou</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-group">
+                    <h3>Vyrovnávací lišta - perfektní podklad</h3>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Připravte</h4>
+                            <p>Připravte podkladní vrstvu</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Nastavte výšku</h4>
+                            <p>Nastavte požadovanou výšku lišty</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Stáhněte</h4>
+                            <p>Stáhněte povrch do roviny</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="fade-in">Investice, která se vyplatí</h2>
+            <p class="fade-in" style="text-align: center; font-size: 1.25rem; margin-bottom: 3rem;">
+                Kvalitní nástroje, které vám ušetří čas, materiál a nervy
+            </p>
+            
+            <div class="pricing-cards fade-in">
+                <div class="pricing-card">
+                    <h3>Měřítko dlažební kostky</h3>
+                    <div class="price">2 490 Kč</div>
+                    <ul class="price-features">
+                        <li>✓ Německá kvalita</li>
+                        <li>✓ 2 roky záruka</li>
+                        <li>✓ Přesnost ±0,5 mm</li>
+                        <li>✓ Ergonomický design</li>
+                    </ul>
+                    <a href="#contact" class="price-cta">Objednat</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="vertical-align: middle; margin-right: 8px;">
+                            <path d="M19.5 12.5L12 20l-7.5-7.5L6 11l4.5 4.5V4h3v11.5L18 11l1.5 1.5z"/>
+                            <rect x="3" y="21" width="18" height="2" rx="1"/>
+                        </svg>
+                        Výhodný SET
+                    </h3>
+                    <div class="price">
+                        4 990 Kč
+                        <span class="price-original">5 780 Kč</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>✓ Měřítko + Vyrovnávací lišta</li>
+                        <li>✓ Ušetříte 790 Kč</li>
+                        <li>✓ Kompletní vybavení</li>
+                        <li>✓ Doprava ZDARMA</li>
+                        <li>✓ Prioritní vyřízení</li>
+                    </ul>
+                    <a href="#contact" class="price-cta">Objednat set</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Vyrovnávací lišta</h3>
+                    <div class="price">3 290 Kč</div>
+                    <ul class="price-features">
+                        <li>✓ Plynulé nastavení</li>
+                        <li>✓ Univerzální použití</li>
+                        <li>✓ Odolná konstrukce</li>
+                        <li>✓ 2 roky záruka</li>
+                    </ul>
+                    <a href="#contact" class="price-cta">Objednat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="fade-in">Časté dotazy</h2>
+            
+            <div class="faq-container fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Hodí se nástroje i pro začátečníky?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ano, jsou navrženy pro intuitivní použití. Dosáhnete profesionálních výsledků i bez letitých zkušeností.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Jaká je životnost nástrojů?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Při běžném používání vydrží nástroje mnoho let. Poskytujeme 2letou záruku na všechny produkty.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Zvládnu s nimi i složitější projekty?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Určitě. Nástroje jsou navrženy pro všechny typy dlažby a podkladů, od jednoduchých chodníků po složité vzory.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Jak rychlá je doprava?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standardní dodání do 3-5 pracovních dnů. U setu máte dopravu zdarma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="fade-in">Začněte pokládat dlažbu jako profesionál</h2>
+                <p class="fade-in" style="font-size: 1.25rem; margin-bottom: 2rem;">
+                    Investice, která se vyplatí hned při prvním použití
+                </p>
+                
+                <div class="whatsapp-section fade-in">
+                    <p class="whatsapp-text">
+                        <strong>Máte dotazy k produktům?</strong><br>
+                        Rádi vám poradíme s výběrem správného nářadí pro váš projekt.<br>
+                        Jsme tu pro vás každý všední den od 8:00 do 18:00.
+                    </p>
+                    <a href="https://wa.me/420734503522" class="whatsapp-cta" target="_blank">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Napište nám na WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Profesionální nástroje pro dlažbu. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update progress bar
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+        });
+
+        // Add number animation on scroll
+        function animateNumbers() {
+            const numbers = [
+                { el: '.product-badge', final: '4x rychlejší' },
+            ];
+            
+            numbers.forEach(({ el, final }) => {
+                const element = document.querySelector(el);
+                if (element && !element.animated) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        element.animated = true;
+                        // Animation logic here if needed
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateNumbers);
+    </script>
+</body>
+</html>
