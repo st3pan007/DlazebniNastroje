@@ -164,7 +164,7 @@
         /* Hero */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover;
+                        url('fotky/brudny5.webp') center/cover;
             color: white;
             padding: 100px 0 80px;
             text-align: center;
@@ -720,6 +720,98 @@
             opacity: 0.8;
         }
 
+        /* Gallery */
+        .gallery {
+            background: var(--light);
+        }
+
+        .gallery-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--light);
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+
+        .gallery-arrow:hover {
+            background: rgba(0,0,0,0.7);
+        }
+
+        .gallery-arrow-left {
+            left: 20px;
+        }
+
+        .gallery-arrow-right {
+            right: 20px;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .nav-links {
@@ -796,7 +888,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Kovové nástroje</a>
+            <a href="#" class="logo">Nářadí na míru</a>
             <ul class="nav-links">
                 <li><a href="#produkty">Produkty</a></li>
                 <li><a href="#jak-to-funguje">Jak to funguje</a></li>
@@ -892,7 +984,7 @@
             <div class="product">
                 <div class="product-grid">
                     <div class="product-image">
-                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d17f62b0-ecf7-4bd1-a8ff-380b1ea19300/public" alt="Měřítko dlažební kostky">
+                        <img src="fotky/meritkodlazby.png" alt="Měřítko dlažební kostky" loading="lazy">
                     </div>
                     <div class="product-info">
                         <h3>Měřítko dlažební kostky</h3>
@@ -969,7 +1061,7 @@
                         <a href="https://wa.me/420734503522?text=Dobrý%20den,%20mám%20zájem%20o%20stahovací%20tyč" class="product-cta" target="_blank">Objednat</a>
                     </div>
                     <div class="product-image">
-                        <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/99afde4b-146a-47a3-c0ea-9e14c2881400/public" alt="Stahovací tyč">
+                        <img src="fotky/vyrovnavacilisty.png" alt="Stahovací tyč" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1074,6 +1166,53 @@
                     <h3>Nerezová verze</h3>
                     <p>Všechny produkty můžeme vyrobit z nerezové oceli.</p>
                 </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Háčky na stan</h3>
+                    <p>Kovové kolíky pro bezpečné ukotvení stanů a přístřešků.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Naše výrobky</h2>
+                <p class="section-intro">Ukázky naší kovové výroby</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-slider">
+                    <div class="gallery-track">
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny1.webp" alt="Výrobek 1" loading="lazy">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny2.webp" alt="Výrobek 2" loading="lazy">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny3.webp" alt="Výrobek 3" loading="lazy">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny4.webp" alt="Výrobek 4" loading="lazy">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny5.webp" alt="Výrobek 5" loading="lazy">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="fotky/brudny6.webp" alt="Výrobek 6" loading="lazy">
+                        </div>
+                    </div>
+                    <button class="gallery-arrow gallery-arrow-left" aria-label="Předchozí">‹</button>
+                    <button class="gallery-arrow gallery-arrow-right" aria-label="Další">›</button>
+                </div>
+                <div class="gallery-dots"></div>
             </div>
         </div>
     </section>
@@ -1160,7 +1299,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <p>© 2025 Kovové nástroje pro dlaždičáře • Česká výroba</p>
+                    <p>© 2025 naradinamiru.com • Česká výroba</p>
                 </div>
                 <div class="footer-right">
                     <span>Webové stránky od</span>
@@ -1213,6 +1352,92 @@
                 
                 if (!isActive) {
                     item.classList.add('active');
+                }
+            });
+        });
+
+        // Gallery slider
+        const galleryTrack = document.querySelector('.gallery-track');
+        const gallerySlides = document.querySelectorAll('.gallery-slide');
+        const galleryArrowLeft = document.querySelector('.gallery-arrow-left');
+        const galleryArrowRight = document.querySelector('.gallery-arrow-right');
+        const galleryDotsContainer = document.querySelector('.gallery-dots');
+        
+        let currentSlide = 0;
+        const totalSlides = gallerySlides.length;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('gallery-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Slide ${i + 1}`);
+            dot.addEventListener('click', () => goToSlide(i));
+            galleryDotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.gallery-dot');
+
+        function updateSlider() {
+            galleryTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        galleryArrowRight.addEventListener('click', nextSlide);
+        galleryArrowLeft.addEventListener('click', prevSlide);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        // Image optimization - convert PNG to WebP on load and lazy load
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            
+            // Check if browser supports WebP
+            const supportsWebP = document.createElement('canvas')
+                .toDataURL('image/webp')
+                .indexOf('data:image/webp') === 0;
+
+            images.forEach(img => {
+                // Lazy loading is already handled by loading="lazy" attribute
+                
+                // Optimize by adding decoding="async" for better performance
+                img.decoding = 'async';
+                
+                // For PNG images, suggest WebP if supported
+                if (supportsWebP && img.src.endsWith('.png')) {
+                    const webpSrc = img.src.replace('.png', '.webp');
+                    // Try to load WebP version, fallback to PNG if not found
+                    const testImg = new Image();
+                    testImg.onload = () => {
+                        img.src = webpSrc;
+                    };
+                    testImg.onerror = () => {
+                        // Keep original PNG if WebP doesn't exist
+                    };
+                    testImg.src = webpSrc;
                 }
             });
         });
